@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#d1",
+                data: {
+
+                },
+                methods: {
+                    test1() {
+                        console.log(1);
+                    },
+                    test2() {
+                        console.log(2);
+                    },
+                    test3() {
+                        console.log(3);
+                    },
+                }
+            })
+        }
+    </script>
+    <style>
+        div,
+        p {
+            border: solid 1px red;
+        }
+    </style>
+</head>
+<!-- 事件冒泡，事件会向上传递 -->
+<body>
+    <div id="d1" @click="test3()">
+        <p @click="test2()">
+            <button id="btn" @click.stop="test1()">click me</button>
+        </p>
+    </div>
+</body>
+
+</html>
